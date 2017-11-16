@@ -282,7 +282,8 @@
 	//A list of every mob with a client
 	for(var/mob in player_list)
 		if(!istype(mob, /mob))
-			crash_with("There is a null or non-mob reference inside player_list.")
+			player_list -= mob
+			crash_with("There is a null or non-mob reference inside player_list ([mob]).")
 			continue
 		if(get_turf(mob) in hearturfs)
 			mobs |= mob
